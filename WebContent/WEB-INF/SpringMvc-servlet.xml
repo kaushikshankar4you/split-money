@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		 http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		 http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		 http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:component-scan base-package="com.controller" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean> 
+	
+	<bean id="dataSource"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="url" value="jdbc:mysql://localhost/split_cash"></property>
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="password"></property>
+</bean>
+
+<!--  obtain Session Factory without hibernate.cfg.xml -->
+<bean id="sfBean" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		
+		<property name="mappingResources">
+		<list>
+			<value>com/hbm.xml/user.hbm.xml</value>
+			<value>com/hbm.xml/product.hbm.xml</value>
+			<value>com/hbm.xml/split.hbm.xml</value>
+			<value>com/hbm.xml/transaction.hbm.xml</value>
+			<value>com/hbm.xml/wallet.hbm.xml</value>
+			<value>com/hbm.xml/transaction_status.hbm.xml</value>
+		</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!--  obtain hibernate template -->
+	<bean id="hibernateTemplateBean" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sfBean"/>		
+	</bean>
+	
+<!--  create dao bean -->
+	
+	<bean id="validdao" class="com.dao.ValidationDaoImpl">
+	<property name="hibernateTemplate" ref="hibernateTemplateBean"/>
+	</bean>
+	
+	<bean id="transdao" class="com.dao.TransactionDaoImpl">
+	<property name="hibernateTemplate" ref="hibernateTemplateBean"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.entity.Wallet" table="wallet">
+		<id name="id" column="id" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="user_id" column="user_id" not-null="true" length="10"/>
+		<property name="amount" column="amount" not-null="true" length="10"/>
+	</class>
+
+</hibernate-mapping>

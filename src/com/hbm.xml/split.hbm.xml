@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.entity.Split" table="split">
+		<id name="id" column="id" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="transaction_id" column="transaction_id" length="10"  />
+		<property name="user_id" column="user_id" length="10" />
+		<property name="topay" column="topay" not-null="true" length="10"/>
+		<property name="consent" column="consent" not-null="true" length="10"/>
+	</class>
+
+</hibernate-mapping>
