@@ -34,6 +34,7 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
+
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
