@@ -35,9 +35,8 @@ public class Transaction {
 		this.id = id;
 		this.user_id = user_id;
 		this.product_id = product_id;
-
 	}
-	
+
 	public Transaction()
 	{
 		super();
