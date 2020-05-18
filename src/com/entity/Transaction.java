@@ -30,7 +30,8 @@ public class Transaction {
 		this.product_id = product_id;
 	}
 
-	public Transaction(int id, int user_id, int product_id, boolean status) {
+	public Transaction(int id, int user_id, int product_id, boolean status)
+	{
 		super();
 		this.id = id;
 		this.user_id = user_id;
