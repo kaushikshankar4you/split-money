@@ -31,6 +31,7 @@ public class Transaction {
 	}
 
 	public Transaction(int id, int user_id, int product_id, boolean status)
+
 	{
 		super();
 		this.id = id;
