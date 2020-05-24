@@ -20,7 +20,8 @@ public class TransactionDaoImpl implements TransactionDaoI{
 	private HibernateTemplate hibernateTemplate;
 	
 	
-	public HibernateTemplate getHibernateTemplate() {
+	public HibernateTemplate getHibernateTemplate()
+	{
 		return hibernateTemplate;
 	}
 
