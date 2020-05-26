@@ -26,6 +26,7 @@ public class TransactionDaoImpl implements TransactionDaoI{
 	}
 
 	public void setHibernateTemplate( HibernateTemplate hibernateTemplate1) {
+
 		this.hibernateTemplate = hibernateTemplate1;
 	}
 
