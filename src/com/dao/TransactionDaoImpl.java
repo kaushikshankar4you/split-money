@@ -33,7 +33,6 @@ public class TransactionDaoImpl implements TransactionDaoI{
 
 	@Override
 	public int setSplit(int id,int transaction_id,String[] phone,int p,String[] amt,int a) {
-		
 		 int[] user_id=new int[p];int i;
          for(i=0;i<p;i++){
          	  String hql = "from User where phone=?";
