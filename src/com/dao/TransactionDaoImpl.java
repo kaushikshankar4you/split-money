@@ -59,7 +59,6 @@ public class TransactionDaoImpl implements TransactionDaoI{
         	 hibernateTemplate.save(s);
         	// updateWalletBalance(user_id[i],amount[i]);
          }
-      
          return 0;
          
 	}
