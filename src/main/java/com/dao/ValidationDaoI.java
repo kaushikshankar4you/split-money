@@ -1,10 +1,10 @@
 package com.dao;
 
-import java.util.List;
-
 import com.entity.Product;
 import com.entity.Split;
 import com.entity.User;
+
+import java.util.List;
 
 public interface ValidationDaoI {
 
