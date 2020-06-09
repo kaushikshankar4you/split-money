@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.entity.Split;
 import com.entity.Transaction;
@@ -75,7 +75,6 @@ public class TransactionDaoImpl implements TransactionDaoI{
 	
 	@Override
 	public int setBaseTransaction(int id,int initiator_id,int product_id) {
-		
 		Transaction t=new Transaction();
 		t.setUser_id(initiator_id);
 		t.setProduct_id(product_id);
